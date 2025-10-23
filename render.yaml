@@ -1,31 +1,12 @@
-services:
-  - type: web
-    name: mynotes-backend
-    env: docker
-    plan: free
-    branch: main
-    autoDeploy: true
-    envVars:
-      - key: DATABASE_URL
-        fromDatabase:
-          name: my-notes-db
-          property: connectionString
-      - key: DB_USERNAME
-        fromDatabase:
-          name: my-notes-db
-          property: user
-      - key: DB_PASSWORD
-        fromDatabase:
-          name: my-notes-db
-          property: password
-
+# Exported from Render on 2025-10-23T18:56:30Z
+version: "1"
 databases:
-  - name: my-notes-db
-    databaseName: my_notes_db_r3k2
-    user: my_notes_db_r3k2_user
-    plan: free
-    region: frankfurt
-    ipAllowList:
-      - source: 0.0.0.0/0
-        description: everywhere
-    postgresMajorVersion: "17"
+- name: my-notes-db
+  databaseName: my_notes_db_r3k2
+  user: my_notes_db_r3k2_user
+  plan: free
+  region: frankfurt
+  ipAllowList:
+  - source: 0.0.0.0/0
+    description: everywhere
+  postgresMajorVersion: "17"
