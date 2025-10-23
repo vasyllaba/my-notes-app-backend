@@ -17,7 +17,7 @@ public class CorsConfig {
         config.setAllowCredentials(true);
         config.setAllowedOriginPatterns(Arrays.asList(
                 "http://localhost:3000",
-                "https://*.vercel.app"
+                "https://*.onrender.com"
         ));
         config.setAllowedHeaders(Arrays.asList("*"));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
