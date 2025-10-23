@@ -19,3 +19,13 @@ services:
           name: my-notes-db
           property: password
 
+databases:
+  - name: my-notes-db
+    databaseName: my_notes_db_r3k2
+    user: my_notes_db_r3k2_user
+    plan: free
+    region: frankfurt
+    ipAllowList:
+      - source: 0.0.0.0/0
+        description: everywhere
+    postgresMajorVersion: "17"
