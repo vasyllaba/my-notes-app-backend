@@ -1,5 +1,5 @@
 # ===== STAGE 1: build =====
-FROM maven:3.9.6-eclipse-temurin-17 AS builder
+FROM maven:3.9.6-eclipse-temurin-21-jammy AS builder
 WORKDIR /app
 
 # Копіюємо pom.xml і завантажуємо залежності
