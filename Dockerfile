@@ -11,7 +11,7 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # ===== STAGE 2: run =====
-FROM eclipse-temurin:25-jdk-alpine
+FROM eclipse-temurin:21-alpine
 WORKDIR /app
 
 # Копіюємо зібраний jar з першого етапу
