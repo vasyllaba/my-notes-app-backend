@@ -11,5 +11,5 @@ public interface NoteRepository extends JpaRepository<Note, Long> {
     // Spring автоматично надає методи: save(), findAll(), findById(), deleteById()
 
     // Кастомний метод для сортування по даті (нові зверху)
-    List<Note> findAllByOrderByCreatedAtDesc();
+    List<Note> findByUserIdOrderByCreatedAtDesc(Long userId);
 }
