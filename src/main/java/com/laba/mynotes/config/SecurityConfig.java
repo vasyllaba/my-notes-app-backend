@@ -28,6 +28,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.POST, "/api/auth/register").permitAll() // Реєстрація доступна всім
                         .requestMatchers(HttpMethod.GET, "/ping").permitAll()
+                        .requestMatchers("/ping").permitAll()
                         .requestMatchers("/api/notes/**").authenticated() // Нотатки тільки для авторизованих
                         .anyRequest().authenticated()
                 )
