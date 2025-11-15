@@ -26,9 +26,10 @@ public class TodoService {
         return todoRepository.findByUserIdAndCompletedTrueOrderByCompletedAtDesc(userId);
     }
 
-    public Todo createTodo(String title, Long userId) {
+    public Todo createTodo(String title, String description, Long userId) {
         Todo todo = new Todo();
         todo.setTitle(title);
+        todo.setDescription(description);
         todo.setUserId(userId);
         todo.setCompleted(false);
         return todoRepository.save(todo);

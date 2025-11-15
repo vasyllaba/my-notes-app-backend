@@ -50,12 +50,13 @@ public class TodoController {
             Authentication authentication) {
 
         String title = request.get("title");
+        String description = request.get("description");
         if (title == null || title.trim().isEmpty()) {
             return ResponseEntity.badRequest().build();
         }
 
         User user = userService.findByUsername(authentication.getName());
-        Todo todo = todoService.createTodo(title, user.getId());
+        Todo todo = todoService.createTodo(title, description, user.getId());
 
         return ResponseEntity.status(HttpStatus.CREATED).body(todo);
     }
