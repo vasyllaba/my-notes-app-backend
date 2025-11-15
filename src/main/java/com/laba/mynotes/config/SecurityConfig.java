@@ -27,6 +27,7 @@ public class SecurityConfig {
                 .cors(cors -> {}) // Використовуємо існуючий CORS
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.POST, "/api/auth/register").permitAll() // Реєстрація доступна всім
+                        .requestMatchers(HttpMethod.GET, "/ping").permitAll()
                         .requestMatchers("/api/notes/**").authenticated() // Нотатки тільки для авторизованих
                         .anyRequest().authenticated()
                 )
