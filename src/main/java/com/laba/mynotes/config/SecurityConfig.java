@@ -23,16 +23,18 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable()) // Вимикаємо CSRF для API
-                .cors(cors -> {}) // Використовуємо існуючий CORS
+                .csrf(csrf -> csrf.disable())
+                .cors(cors -> {})
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.POST, "/api/auth/register").permitAll() // Реєстрація доступна всім
+                        .requestMatchers(HttpMethod.POST, "/api/auth/register").permitAll()
                         .requestMatchers(HttpMethod.GET, "/ping").permitAll()
                         .requestMatchers("/ping").permitAll()
-                        .requestMatchers("/api/notes/**").authenticated() // Нотатки тільки для авторизованих
+                        .requestMatchers("/api/notes/**").authenticated()
+                        .requestMatchers("/api/todos/**").authenticated()
+                        .requestMatchers("/api/tasks/**").authenticated() // Додали tasks
                         .anyRequest().authenticated()
                 )
-                .httpBasic(basic -> {}); // Basic Auth
+                .httpBasic(basic -> {});
 
         return http.build();
     }
