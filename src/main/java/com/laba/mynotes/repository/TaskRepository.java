@@ -25,4 +25,10 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
 
     // Тільки завершені таски
     List<Task> findByUserIdAndCompletedTrueOrderByCompletedAtDesc(Long userId);
+
+    // Таски певного епіка
+    List<Task> findByEpicIdOrderByDueDateAsc(Long epicId);
+
+    // Таски без епіка
+    List<Task> findByUserIdAndEpicIdIsNullOrderByDueDateAsc(Long userId);
 }

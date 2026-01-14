@@ -31,7 +31,8 @@ public class SecurityConfig {
                         .requestMatchers("/ping").permitAll()
                         .requestMatchers("/api/notes/**").authenticated()
                         .requestMatchers("/api/todos/**").authenticated()
-                        .requestMatchers("/api/tasks/**").authenticated() // Додали tasks
+                        .requestMatchers("/api/tasks/**").authenticated()
+                        .requestMatchers("/api/epics/**").authenticated() // Додали epics
                         .anyRequest().authenticated()
                 )
                 .httpBasic(basic -> {});

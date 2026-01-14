@@ -9,11 +9,11 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "tasks")
+@Table(name = "epics")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Task {
+public class Epic {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,24 +25,15 @@ public class Task {
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    @Column(name = "estimation_hours")
-    private Double estimationHours;
-
-    @Column(name = "due_date", nullable = false)
-    private LocalDateTime dueDate;
-
-    @Column(nullable = false)
-    private Boolean completed = false;
-
     @Column(name = "user_id", nullable = false)
     private Long userId;
-
-    @Column(name = "epic_id")
-    private Long epicId;  // Додали зв'язок з Epic (nullable)
 
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
+
+    @Column(name = "completed", nullable = false)
+    private Boolean completed = false;
 
     @Column(name = "completed_at")
     private LocalDateTime completedAt;
